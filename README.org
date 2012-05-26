@@ -1,0 +1,28 @@
+* Torpy - a hidden service controller and py module
+
+run torpy from the commandline:
+
+#+BEGIN_SRC shell
+torpy list
+torpy status <service>
+torpy start <service> <host:port> <serviceport>
+torpy stop <service>"
+#+END_SRC
+
+or use it from python:
+
+#+BEGIN_SRC python
+tp=Torpy(passphrase)
+# list services
+tp.list()
+# check if test_service is running
+print "running" if tp.status("test_service") else "not running"
+# start test_service
+tp.start("test_service","localhost:80","80")
+# check again
+print "running" if tp.status("test_service") else "not running"
+# stop service
+tp.stop("test_service")
+# don't forget to close the control connection
+tp.close()
+#+END_SRC
