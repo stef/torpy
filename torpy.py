@@ -24,7 +24,7 @@ class Torpy(object):
         tmp.extend((('HiddenServiceDir', "%s/%s/" %
                      (os.path.dirname(os.path.abspath(__file__)), service)),
                     ('HiddenServicePort', "%s %s" % (port, endpoint))))
-        print >>sys.stderr, '\n'.join([str(x) for x in tmp])
+        print >>sys.stderr, '\n'.join(str(x) for x in tmp)
         self.loadcfg(tmp)
 
     def stop(self, service):
@@ -42,7 +42,7 @@ class Torpy(object):
             else:
                 cfg.append(opts[i])
                 i=i+1
-        print '\n'.join([str(x) for x in cfg])
+        print '\n'.join(str(x) for x in cfg)
         self.loadcfg(cfg)
         
     def list(self):
@@ -59,7 +59,7 @@ class Torpy(object):
                 res[curr]['port']=port
                 res[curr]['endpoint']=endpoint
             i=i+1
-        print '\n'.join(["%-16s %s" % (k,str(v)) for k,v in sorted(res.items())])
+        print '\n'.join("%-16s %s" % i for i in sorted(res.iteritems()))
 
     def loadcfg(self, cfg):
         self.conn.set_options(cfg)
