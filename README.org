@@ -2,6 +2,22 @@
 
 run torpy from the commandline:
 
+generate a password for accessing tor remotely:
+#+BEGIN_SRC shell
+% /usr/sbin/tor --hash-password "password"
+Oct 23 23:39:44.561 [notice] Tor v0.2.3.22-rc (git-4a0c70a817797420) running on Linux.
+Oct 23 23:39:44.561 [notice] Tor can't help you if you use it wrong! Learn how to be safe at https://www.torproject.org/download/download#warning
+Oct 23 23:39:44.564 [notice] This version of OpenSSL has a known-good EVP counter-mode implementation. Using it.
+16:1387221FFADC246D60BEAA58274647717AA12A2ACE268F7AF0D5BF271A
+#+END_SRC
+
+put the last line into your torrc
+
+#+BEGIN_SRC shell
+sudo echo "HashedControlPassword 16:1387221FFADC246D60BEAA58274647717AA12A2ACE268F7AF0D5BF271A" >>/etc/tor/torrc
+echo 'passphrase="password"' >config.py
+#+END_SRC
+
 #+BEGIN_SRC shell
 torpy list
 torpy status <service>
