@@ -42,3 +42,6 @@ tp.stop("test_service")
 # don't forget to close the control connection
 tp.close()
 #+END_SRC
+
+*warning* if you start a new onion service using start, the full path must be
+readable and executable (o+rx) by the user running tor.
