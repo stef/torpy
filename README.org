@@ -14,7 +14,7 @@ Oct 23 23:39:44.564 [notice] This version of OpenSSL has a known-good EVP counte
 put the last line into your torrc
 
 #+BEGIN_SRC shell
-sudo echo "HashedControlPassword 16:1387221FFADC246D60BEAA58274647717AA12A2ACE268F7AF0D5BF271A" >>/etc/tor/torrc
+sudo printf "\nCookieAuthentication 0\nHashedControlPassword 16:1387221FFADC246D60BEAA58274647717AA12A2ACE268F7AF0D5BF271A\n" >>/etc/tor/torrc
 echo 'passphrase="password"' >config.py
 #+END_SRC
 
