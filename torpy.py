@@ -20,7 +20,7 @@ class Torpy(object):
         if self.status(service):
             print >>sys.stderr, "already running"
             return
-        tmp=self.conn.get_option("HiddenServiceOptions")
+        tmp=[]
         tmp.extend((('HiddenServiceDir', "%s/%s/" %
                      (os.path.dirname(os.path.abspath(__file__)), service)),
                     ('HiddenServicePort', "%s %s" % (port, endpoint))))
@@ -44,7 +44,7 @@ class Torpy(object):
                 i=i+1
         print '\n'.join(str(x) for x in cfg)
         self.loadcfg(cfg)
-        
+
     def list(self):
         opts=self.conn.get_option("HiddenServiceOptions")
         i=0
