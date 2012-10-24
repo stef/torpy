@@ -1,0 +1,3 @@
+[submodule "pytorctl"]
+	path = pytorctl
+	url = git://github.com/aaronsw/pytorctl.git
