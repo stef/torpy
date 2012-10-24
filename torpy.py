@@ -20,7 +20,9 @@ class Torpy(object):
         if self.status(service):
             print >>sys.stderr, "already running"
             return
-        tmp=[]
+        tmp=self.conn.get_option("HiddenServiceOptions")
+        if tmp==[('HiddenServiceOptions', None)]:
+            tmp=[]
         tmp.extend((('HiddenServiceDir', "%s/%s/" %
                      (os.path.dirname(os.path.abspath(__file__)), service)),
                     ('HiddenServicePort', "%s %s" % (port, endpoint))))
